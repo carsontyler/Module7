@@ -11,18 +11,20 @@ class Counter
 private:
     unsigned int count;                     // count
 public:
-    Counter():count(0){};                   // Constructor
+    Counter():count(0){};                   // Constructor with no arguments
+    Counter(int c):count(c){};              // Constructor with argument
 
-    unsigned int get_count()                // Return scount
+    unsigned int get_count()                // Return count
     {
         return count;
     }
     Counter operator ++()                      // Increment prefix, 'operator' overloads the operator. We have to add the features
     {
         ++count;
-        Counter temp;
+        return Counter(count);
+        /*Counter temp;
         temp.count = count;
-        return temp;
+        return temp;*/
     }
 };
 
