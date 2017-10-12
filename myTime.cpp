@@ -91,7 +91,7 @@ time24::operator time12() const
 int main()
 {
     time24 t1;
-    time24 t2(12,2,40);
+    time24 t2(18,2,40);
     t1.display();
     t2.display();
 
@@ -99,7 +99,11 @@ int main()
     time12 t4(false, 2, 40);
     t3.display();
     t4.display();
-    
+
+    // Convert t24 to t12
+    time12 t12 = t2;
+    t12.display();
+
     return 0;
 }
 // Function Definitions
