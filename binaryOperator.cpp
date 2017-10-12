@@ -28,6 +28,7 @@ public:
         cout << feet << "\'-" << inches << "\"" << endl;
     }
     Distance operator + (Distance) const;                       // Add 2 distances
+    void operator += (Distance);
 };
 //Prototypes, Return sum
 Distance Distance::operator+(Distance d2) const
@@ -41,7 +42,16 @@ Distance Distance::operator+(Distance d2) const
     }
     return Distance(f,i);
 }
-
+void Distance::operator+=(Distance d2)
+{
+    feet += d2.feet;
+    inches += d2.inches;
+    while (inches >= 12.0)
+    {
+        inches -= 12.0;
+        feet++;
+    }
+}
 // Main Program
 int main()
 {
@@ -53,6 +63,9 @@ int main()
     // Add binary operator support
     d3 = d1 + d2;
     cout << "Distance d3 = "; d3.showdist(); cout << endl;
+    d2 += d3;
+    cout << "Distance d2 = "; d2.showdist(); cout << endl;
+
 
     return 0;
 }
